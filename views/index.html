@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="tunely">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -26,6 +26,61 @@
         <p>Your music binder!</p>
       </div>
     </div>
+
+    <section class="container" ng-controller="AlbumsIndexController as albums">
+      <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+          <h2>Albums</h2>
+        </div>
+      </div>
+
+      <section class="container">
+        <div class="row">
+          <label>Search: <input type="text" ng-model="searchBy"/></label>
+        </div>
+      </section>
+
+      <section class="container">
+        <div class="row">
+          <h3>Add New Album</h3>
+          <input type="text" class="form-control" placeholder="New Album Name" ng-model="albums.newAlbum.name"/>
+          <input type="text" class="form-control" placeholder="New Album Artist" ng-model="albums.newAlbum.artistName"/>
+        </div>
+      </section>
+      
+      <div ng-repeat="album in albums.albumsList | orderBy: 'name' | filter:searchBy">
+        <div class='row'>
+          <!-- <div class="col-md-3 col-xs-12 thumbnail album-art">
+            <img src="images/800x800.png" alt="album image">
+          </div> -->
+
+          <div class="col-md-9 col-xs-12">
+            <ul class="list-group">
+              <li class="list-group-item">
+                <h4 class='inline-header'>Album Name:</h4>
+                <span class='album-name'>{{album.name}}</span>
+              </li>
+
+              <li class="list-group-item">
+                <h4 class='inline-header'>Artist Name:</h4>
+                <span class='artist-name'>{{album.artistName}}</span>
+              </li>
+
+              <li class="list-group-item">
+                <h4 class='inline-header'>Released date:</h4>
+                <span class='album-releaseDate'>{{releaseDate}}</span>
+              </li>
+
+              <li class="list-group-item">
+                <h4 class="inline-header">Songs:</h4>
+                {{songs}}
+                <span class="list-of-songs">- ({{trackNumber}}) {{name}}</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
   </body>
 
 </html>
