@@ -27,28 +27,33 @@
       </div>
     </div>
 
-    <section class="container" ng-controller="AlbumsIndexController as albums">
+    <section class="container col-md-offset-2" ng-controller="AlbumsIndexController as albums">
       <div class="row">
-        <div class="col-md-10 col-md-offset-1">
+        <div class="col-md-10 col-md-offset-4 col-xs-offset-4">
           <h2>Albums</h2>
         </div>
       </div>
 
       <section class="container">
-        <div class="row">
+        <div class="row col-md-offset-3 col-xs-offset-3">
           <label>Search: <input type="text" ng-model="searchBy"/></label>
         </div>
       </section>
 
       <section class="container">
-        <div class="row">
+        <div class="row col-md-9 col-xs-12">
           <h3>Add New Album</h3>
-          <input type="text" class="form-control" placeholder="New Album Name" ng-model="albums.newAlbum.name"/>
-          <input type="text" class="form-control" placeholder="New Album Artist" ng-model="albums.newAlbum.artistName"/>
+          <form ng-submit="albums.createAlbum();">
+            <label>Album Name:</label><input type="text" class="form-control" ng-model="albums.newAlbum.name"/>
+            <label>Album Artist:</label><input type="text" class="form-control" ng-model="albums.newAlbum.artistName"/>
+            <label>Released Date:</label><input type="text" class="form-control" placeholder="yyyy, month dd" ng-model="albums.newAlbum.releaseDate">
+            <label>Album Genres (separated by commas):</label><input type="text" class="form-control" ng-model="albums.newAlbum.genres">
+            <input class="pull-right" type="submit" value="Submit">
+          </form>
         </div>
       </section>
       
-      <div ng-repeat="album in albums.albumsList | orderBy: 'name' | filter:searchBy">
+      <div ng-repeat="album in albums.albumsList | orderBy: null | filter:searchBy">
         <div class='row'>
           <!-- <div class="col-md-3 col-xs-12 thumbnail album-art">
             <img src="images/800x800.png" alt="album image">
@@ -68,7 +73,7 @@
 
               <li class="list-group-item">
                 <h4 class='inline-header'>Released date:</h4>
-                <span class='album-releaseDate'>{{releaseDate}}</span>
+                <span class='album-releaseDate'>{{album.releaseDate}}</span>
               </li>
 
               <li class="list-group-item">
