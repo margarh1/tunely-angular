@@ -42,8 +42,8 @@
 
       <section class="container">
         <div class="row col-md-9 col-xs-12">
-          <h3>Add New Album</h3>
-          <form ng-submit="albums.createAlbum();">
+          <h3 ng-click='addNew = !addNew'>Add New Album</h3>
+          <form ng-show='addNew' ng-submit="albums.createAlbum();">
             <label>Album Name:</label><input type="text" class="form-control" ng-model="albums.newAlbum.name"/>
             <label>Album Artist:</label><input type="text" class="form-control" ng-model="albums.newAlbum.artistName"/>
             <label>Released Date:</label><input type="text" class="form-control" placeholder="yyyy, month dd" ng-model="albums.newAlbum.releaseDate">
@@ -77,6 +77,12 @@
                 <h4 class='inline-header'>Released date:</h4>
                 <span ng-hide='editing' class='album-releaseDate'>{{album.releaseDate}}</span>
                 <input ng-show='editing' ng-model='album.releaseDate' type="text" class="form-control input-md">
+              </li>
+
+              <li class="list-group-item">
+                <h4 class="inline-header">Genres:</h4>
+                <span ng-hide='editing' class="album-genres" ng-repeat='genre in album.genres'>{{genre}}, </span>
+                <input ng-show='editing' ng-model='album.genres' type="text" class="form-control input-md">
               </li>
 
               <li class="list-group-item">

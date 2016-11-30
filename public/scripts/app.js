@@ -11,12 +11,6 @@ angular
 function AlbumsIndexController($http) {
   var vm = this;
   vm.newAlbum = {};
-
-  vm.newAlbum = {
-    name: 'Licensed to Ill',
-    artistName: 'Beastie Boys'
-  };
-
   vm.albumsList
 
   $http({
@@ -69,19 +63,4 @@ function AlbumsIndexController($http) {
   function onError(err) {
     console.log(err)
   };
-
-  // vm.albumsList = [
-  //   {
-  //     name: 'Coming Home',
-  //     artistName: 'Leon Bridges'
-  //   },
-  //   {
-  //     name: 'Are We There',
-  //     artistName: 'Sharon Van Etten'
-  //   },
-  //   {
-  //     name: 'The Queen is Dead',
-  //     artistName: 'The Smiths'
-  //   }
-  // ];
 }
