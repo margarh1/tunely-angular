@@ -21,3 +21,7 @@
 .buttons-row {
   text-align: right;
 }
+
+h3, h2, .search-bar {
+  text-align: center;
+}

@@ -1,0 +1,43 @@
+<section class="container col-md-offset-2">
+  <div class="row">
+    <div class="col-md-10 col-md-offset-4 col-xs-offset-4">
+      <h2>Album</h2>
+    </div>
+  </div>
+  
+  <div class='row'>
+    <!-- <div class="col-md-3 col-xs-12 thumbnail album-art">
+      <img src="images/800x800.png" alt="album image">
+    </div> -->
+
+    <div class="col-md-9 col-xs-12">
+      <ul class="list-group">
+        <li class="list-group-item">
+            <h4 class='inline-header'>Album Name:</h4>
+            <span ng-hide='editing' class='album-name'><a ng-href="albums/{{album._id}}">{{album.name}}</a></span>
+            <input ng-show='editing' ng-model='album.name' type="text" class="form-control input-md">
+          </li>
+
+        <li class="list-group-item">
+          <h4 class='inline-header'>Artist Name:</h4>
+          <span class='artist-name'>{{oneAlbum.album.artistName}}</span>
+        </li>
+
+        <li class="list-group-item">
+          <h4 class='inline-header'>Released date:</h4>
+          <span class='album-releaseDate'>{{oneAlbum.album.releaseDate}}</span>
+        </li>
+
+        <li class="list-group-item">
+          <h4 class="inline-header">Genres:</h4>
+          <span class="album-genres" ng-repeat='genre in oneAlbum.album.genres'>{{genre}}, </span>
+        </li>
+
+        <li class="list-group-item">
+          <h4 class="inline-header">Songs:</h4>
+          <span class="list-of-songs" ng-repeat='song in oneAlbum.album.songs'>- ({{song.trackNumber}}) {{song.name}}</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
