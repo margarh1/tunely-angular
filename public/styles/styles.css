@@ -25,3 +25,8 @@
 h3, h2, .search-bar {
   text-align: center;
 }
+
+a, a:hover {
+  color: white;
+  text-decoration: none;
+}
